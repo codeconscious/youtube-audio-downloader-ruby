@@ -4,15 +4,15 @@ if ARGV.length == 0
 end
 
 # Download audio for each argument.
-ARGV.each do |a|
-    if a.length == 11
-        puts "■ Processing ID " + a
-        $command = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --split-chapters https://www.youtube.com/watch?v=#{a}"
+ARGV.each do |arg|
+    if arg.length == 11
+        puts "■ Processing ID " + arg
+        $command = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --split-chapters https://www.youtube.com/watch?v=#{arg}"
         puts "Command: " + $command
         system $command # Runs the command, piping in its output too.
     else
-        puts "■ ERROR: #{a} is not a valid source ID."
+        puts "■ ERROR: #{arg} is not a valid source ID."
     end
 end
 
-puts "Downloads (hopefully) complete."
+puts "✅ Downloading complete."
