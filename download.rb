@@ -37,4 +37,5 @@ if success_count == 0
     return;
 end
 
+# Move certain files to a specified directory.
 move("mp3", "target_directory.txt")
