@@ -8,8 +8,8 @@ success_count = 0
 failure_count = 0
 
 # Download audio for each valid ID.
-ARGV.each do |rawArg|
-    id = rawArg[/^[\w|-]{11}$|(?<=v=|v\\=)[\w|-]{11}|(?<=youtu\.be\/).{11}/]
+ARGV.each do |arg|
+    id = arg[/^[\w|-]{11}$|(?<=v=|v\\=)[\w|-]{11}|(?<=youtu\.be\/).{11}/]
     if id
         puts "■ Processing ID " + id
         $command = "yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 --split-chapters https://www.youtube.com/watch?v=#{id}"
@@ -21,7 +21,7 @@ ARGV.each do |rawArg|
             failure_count += 1
         end
     else
-        puts "■ ERROR: A valid ID could not be parsed from '#{rawArg}'"
+        puts "■ ERROR: A valid ID could not be parsed from '#{arg}'"
         failure_count += 1
     end
 end
