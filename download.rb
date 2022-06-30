@@ -1,3 +1,5 @@
+require './move_files.rb'
+
 if ARGV.length == 0
     puts "Please supply one or more video URLs or IDs to use this tool."
     puts "(Depending on your OS, you might need to enclose URLs in quotation marks.)"
@@ -30,3 +32,9 @@ end
 success_label = success_count == 1 ? "success" : "successes"
 failure_label = failure_count == 1 ? "failure" : "failures"
 puts "Done with #{success_count} #{success_label} and #{failure_count} #{failure_label}"
+
+if success_count == 0
+    return;
+end
+
+move("mp3", "target_directory.txt")
