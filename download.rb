@@ -1,5 +1,6 @@
 if ARGV.length == 0
-    puts "ERROR: No IDs supplied."
+    puts "Please supply one or more video URLs or IDs to use this tool."
+    puts "(Depending on your OS, you might need to enclose URLs in quotation marks.)"
     return
 end
 
@@ -25,7 +26,7 @@ ARGV.each do |rawArg|
     end
 end
 
-# Print the results
+# Print the results.
 successLabel = successCount == 1 ? "success" : "successes"
 failureLabel = failureCount == 1 ? "failure" : "failures"
 puts "Done with #{successCount} #{successLabel} and #{failureCount} #{failureLabel}"
