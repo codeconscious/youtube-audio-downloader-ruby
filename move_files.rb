@@ -11,6 +11,6 @@ def move(extension, target_directory_file)
             puts "ERROR: Path '#{path}' not found, so no files moved."
         end
     else
-        puts "No files moved."
+        puts "No files moved because '#{target_directory_file}' was not found."
     end
 end
