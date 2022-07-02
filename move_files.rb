@@ -1,7 +1,7 @@
 require 'fileutils'
 
 # TODO: Add error handling for IO operations.
-def move(extension, target_directory_file)
+def move_files(extension, target_directory_file)
     if File.exist?(target_directory_file)
         path = File.read(target_directory_file).chomp
         if Dir.exist?(path)
@@ -10,7 +10,7 @@ def move(extension, target_directory_file)
                 puts "No #{extension.upcase} files to move were found. (Was there a download error?)"
                 return
             end
-            print "Will move #{file_count} #{extension.upcase} files to path '#{path}'... "
+            print "Moving #{file_count} #{extension.upcase} files to path '#{path}'... "
             FileUtils.mv Dir.glob('*.' + extension), path
             puts "done!"
         else
